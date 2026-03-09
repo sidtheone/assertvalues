@@ -1,24 +1,37 @@
+<div align="center">
+
 # The AssertValues Manifesto
 
-**A method for solo developers and small teams building with AI: declare what matters, let the machine derive the rest.**
+**A method for solo developers and small teams building with AI:**
+**declare what matters, let the machine derive the rest.**
+
+[![Star on GitHub](https://img.shields.io/github/stars/sidtheone/assertvalues?style=social)](https://github.com/sidtheone/assertvalues)
+
+[Read the Manifesto](#we-assert) | [Worked Example](#a-worked-example) | [Try It](#try-it)
+
+</div>
 
 ---
 
 ## We Assert
 
-1. **Values before specifications.** A system built on "we never surprise the user" produces better code than one built on "validate all inputs on fields 1–47." Specs describe the *what*. Values describe the *why*. The why survives contact with reality. The what doesn't. This isn't either/or — specs still matter when precision matters. But values come first, because they shape which specs you need.
+**1. Values before specifications.**
+A system built on "we never surprise the user" produces better code than one built on "validate all inputs on fields 1–47." Specs describe the *what*. Values describe the *why*. The why survives contact with reality. The what doesn't. This isn't either/or — specs still matter when precision matters. But values come first, because they shape which specs you need.
 
-2. **Philosophy is an input, not a decoration.** Values aren't something you frame on the wall after the code ships. They are the primary artifact you hand to the AI. They come first. They are the source code.
+**2. Philosophy is an input, not a decoration.**
+Values aren't something you frame on the wall after the code ships. They are the primary artifact you hand to the AI. They come first. They are the source code.
 
-3. **Propagation over enforcement.** Rules are brittle. A value, properly declared, shapes decisions no linter can reach—architecture, error handling, naming, defaults. You don't enforce "security-first." You assert it, and it flows into every layer without a checklist.
+**3. Propagation over enforcement.**
+Rules are brittle. A value, properly declared, shapes decisions no linter can reach — architecture, error handling, naming, defaults. You don't enforce "security-first." You assert it, and it flows into every layer without a checklist.
 
-4. **Humans declare, machines derive.** The human's job is to know what matters. The machine's job is to turn that into working software. This is the correct division of labor for the age we're entering.
+**4. Humans declare, machines derive.**
+The human's job is to know what matters. The machine's job is to turn that into working software. This is the correct division of labor for the age we're entering.
 
 ---
 
 ## What This Replaces
 
-The current loop: you prompt, you get code, you eyeball it, you prompt again. The feedback is structural—*move this here, rename that, add error handling.* You're iterating on *what the code should do* when you should be declaring *what the code should care about*. AssertValues breaks that loop. Be clear about what matters, and the implementation follows.
+The current loop: you prompt, you get code, you eyeball it, you prompt again. The feedback is structural — *move this here, rename that, add error handling.* You're iterating on *what the code should do* when you should be declaring *what the code should care about*. AssertValues breaks that loop. Be clear about what matters, and the implementation follows.
 
 There's a deeper problem this solves: **framework drift**. When you build fast with AI, the AI doesn't just write what you asked for — it writes what it thinks you'll need next. Service layers, adapter patterns, event buses, generic components. Each one is defensible in isolation. Together, they turn a weekend project into an enterprise scaffold that nobody asked for. Without values, there's no force pushing back. The complexity ratchet only turns one way. Values are the counter-force — they give the AI a reason to say *no* to its own instincts.
 
@@ -26,11 +39,11 @@ There's a deeper problem this solves: **framework drift**. When you build fast w
 
 ## How Values Propagate Into Code
 
-A spec is pushing a single brick—it moves that brick and nothing else. A value is a lever at the top of the wall—one pull rearranges everything below it.
+A spec is pushing a single brick — it moves that brick and nothing else. A value is a lever at the top of the wall — one pull rearranges everything below it.
 
 **You declare a value** → the AI treats it as a constraint that applies everywhere, not a rule that applies once. When you assert "we value transparency," it chooses inspectable data structures. It writes errors that explain *why*. It avoids abstractions that obscure behavior. One value, dozens of coherent decisions.
 
-A spec is a point. A value is a vector—it has direction, and it applies force across the entire codebase.
+> A spec is a point. A value is a vector — it has direction, and it applies force across the entire codebase.
 
 ---
 
@@ -39,7 +52,7 @@ A spec is a point. A value is a vector—it has direction, and it applies force 
 Not all values are equal. A platitude biases nothing. A sharp value kills ten bad ideas before they start.
 
 | Platitude | Sharp Value |
-|---|---|
+|:---|:---|
 | "We value quality" | "We never ship what we haven't tested" |
 | "Keep it simple" | "Three similar lines beat a premature abstraction" |
 | "Be user-friendly" | "Never surprise the user" |
@@ -47,7 +60,8 @@ Not all values are equal. A platitude biases nothing. A sharp value kills ten ba
 | "Security matters" | "Assume every input is hostile" |
 
 **What makes a value propagate:**
-- **It constrains.** If it doesn't make you say no to something, it's not a value—it's a wish.
+
+- **It constrains.** If it doesn't make you say no to something, it's not a value — it's a wish.
 - **It's specific enough to decide with.** "Never surprise the user" tells you what to do at a fork in the road. "Be user-friendly" doesn't.
 - **It's general enough to apply everywhere.** If it only matters in one file, it's a spec, not a value.
 - **Few beat many.** Three sharp values outperform fifteen that conflict. If your values need a priority matrix, you have too many.
@@ -67,7 +81,7 @@ PostgreSQL with Drizzle ORM, Tailwind. Include auth, search,
 and an admin dashboard.
 ```
 
-A good AI will scaffold the full picture: `ProductService`, `OrderService`, `ReviewSystem` with moderation queue. A generic `DataTable` with sorting, filtering, and pagination abstracted upfront. An event bus for order-placed → send-email → update-inventory. Repository patterns wrapping Drizzle behind another layer. Auth middleware chains. A component library with 30 primitives. 60+ files before a single user flow works end-to-end. The skeleton looks impressive. The gap between scaffolded and shipped is where the real work lives.
+A good AI will scaffold the full picture: `ProductService`, `OrderService`, `ReviewSystem` with moderation queue. A generic `DataTable` with sorting, filtering, and pagination abstracted upfront. An event bus for order-placed → send-email → update-inventory. Repository patterns wrapping Drizzle behind another layer. Auth middleware chains. A component library with 30 primitives. **60+ files** before a single user flow works end-to-end. The skeleton looks impressive. The gap between scaffolded and shipped is where the real work lives.
 
 Now the same prompt, with five values loaded:
 
@@ -89,9 +103,17 @@ VALUES.md
   Every interaction should behave exactly as the user expects.
 ```
 
-~15 files. Deployable in one session. Stripe Checkout redirect instead of a custom payment flow — because "never surprise the user" means using the flow buyers already trust. SQL `ILIKE` for search instead of Elasticsearch — because Voltaire says ship it, upgrade when someone complains. Reviews inline on the product page, not a `ReviewAggregator` with sentiment analysis — because Atwood says every file must earn its existence. No repository layer wrapping Drizzle — because Metz says don't abstract until the pattern is clear. No generic `DataTable` — duplicate the table markup in admin and product list until a real shared shape emerges.
+**~15 files.** Deployable in one session. Stripe Checkout redirect instead of a custom payment flow — because "never surprise the user" means using the flow buyers already trust. SQL `ILIKE` for search instead of Elasticsearch — because Voltaire says ship it, upgrade when someone complains. Reviews inline on the product page, not a `ReviewAggregator` with sentiment analysis — because Atwood says every file must earn its existence. No repository layer wrapping Drizzle — because Metz says don't abstract until the pattern is clear. No generic `DataTable` — duplicate the table markup in admin and product list until a real shared shape emerges.
 
-Each value kills specific decisions. "Ship the working version" kills the analytics dashboard. "Every line is a line you must maintain" kills the event bus. "Tolerate repetition" kills the generic component. "Never surprise the user" picks Stripe's hosted checkout over a custom one that could break in unexpected ways.
+Each value kills specific decisions:
+
+| Value | What it kills |
+|:---|:---|
+| "Ship the working version" | Analytics dashboard, seller insights |
+| "Every line is a line you must maintain" | Event bus, email system |
+| "Tolerate repetition" | Generic `DataTable` component |
+| "Never surprise the user" | Custom checkout flow |
+| "Do one thing well" | Middleware chains, plugin architecture |
 
 60 files vs. 15. Both handle the same prompt. One scaffolds for a future that may never arrive. The other ships for the present and evolves with real feedback.
 
@@ -101,7 +123,7 @@ Each value kills specific decisions. "Ship the working version" kills the analyt
 
 Levers trade precision for reach. AssertValues is not universal. It breaks in specific, predictable ways:
 
-**Regulatory compliance.** You can assert "patient safety" but the FDA needs field-level audit trails, specific error codes, and exact data retention windows. When a regulator is the audience—not an AI—specs aren't optional. They're the deliverable.
+**Regulatory compliance.** You can assert "patient safety" but the FDA needs field-level audit trails, specific error codes, and exact data retention windows. When a regulator is the audience — not an AI — specs aren't optional. They're the deliverable.
 
 **Protocol and integration work.** Implementing OAuth2, matching an API contract, parsing a wire format. The spec *is* the product. The bytes either match or they don't. There's nothing to philosophize about.
 
@@ -121,4 +143,14 @@ AssertValues needs proof, not persuasion. Build something real this way — decl
 
 If AI-assisted development feels powerful but aimless, this is the missing piece: *aim*.
 
-Assert your values. Let the code follow.
+**Assert your values. Let the code follow.**
+
+---
+
+<div align="center">
+
+If this resonates, [star the repo](https://github.com/sidtheone/assertvalues) and try it on your next build.
+
+Built by humans and AI, together.
+
+</div>
