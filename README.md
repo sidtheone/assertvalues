@@ -1,17 +1,3 @@
-<div align="center">
-
-# The AssertValues Manifesto
-
-**A method for solo developers and small teams building with AI:**
-**declare what matters, let the machine derive the rest.**
-
-[![Star on GitHub](https://img.shields.io/github/stars/sidtheone/assertvalues?style=social)](https://github.com/sidtheone/assertvalues)
-
-[Read the Manifesto](#we-assert) | [Worked Example](#a-worked-example) | [Try It](#try-it)
-
-</div>
-
----
 
 ## We Assert
 
@@ -147,10 +133,6 @@ If AI-assisted development feels powerful but aimless, this is the missing piece
 
 ---
 
-<div align="center">
+If this resonates, [star the repo on GitHub](https://github.com/sidtheone/assertvalues) and try it on your next build.
 
-If this resonates, [star the repo](https://github.com/sidtheone/assertvalues) and try it on your next build.
-
-Built by humans and AI, together.
-
-</div>
+*Built by humans and AI, together.*
