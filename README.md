@@ -139,7 +139,7 @@ AssertValues is sharpest in small teams with high autonomy — solo developers, 
 
 ## Try It
 
-AssertValues needs proof, not persuasion. Build something real this way — declare values first, write zero specs, and see what the AI produces.
+AssertValues needs proof, not persuasion. Build something real this way — declare values first, and see how they shape what the AI produces.
 
 If AI-assisted development feels powerful but aimless, this is the missing piece: *aim*.
 
