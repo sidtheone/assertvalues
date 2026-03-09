@@ -53,7 +53,7 @@ Not all values are equal. A platitude biases nothing. A sharp value kills ten ba
 - **It's general enough to apply everywhere.** If it only matters in one file, it's a spec, not a value.
 - **Few beat many.** Three sharp values outperform fifteen that conflict. If your values need a priority matrix, you have too many.
 
-Writing sharp values is a skill. It requires knowing what trade-offs exist before you can choose a side. If you're not sure where to start, you're not alone — we're building something to help with that.
+Writing sharp values is a skill. It requires knowing what trade-offs exist before you can choose a side. If you're not sure where to start, there's a [Claude Code skill](https://github.com/sidtheone/assertvalues-skill) that walks you through it — product values first, then engineering, UX, DevOps, whatever layers your project needs.
 
 ---
 
@@ -134,6 +134,6 @@ If AI-assisted development feels powerful but aimless, this is the missing piece
 
 ---
 
-If this resonates, [star the repo on GitHub](https://github.com/sidtheone/assertvalues) and try it on your next build.
+If this resonates, [star the repo on GitHub](https://github.com/sidtheone/assertvalues) and try it on your next build. There's also an [AssertValues skill for Claude Code](https://github.com/sidtheone/assertvalues-skill) that helps you write sharp values step by step.
 
 *Built by humans and AI, together.*
