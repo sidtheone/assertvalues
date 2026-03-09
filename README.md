@@ -1,3 +1,4 @@
+# The AssertValues Manifesto
 
 ## We Assert
 
@@ -129,7 +130,7 @@ AssertValues needs proof, not persuasion. Build something real this way — decl
 
 If AI-assisted development feels powerful but aimless, this is the missing piece: *aim*.
 
-**Assert your values. Let the code follow.**
+**Assert your values. Let the code flow.**
 
 ---
 
